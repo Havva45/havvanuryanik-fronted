@@ -1,0 +1,327 @@
+/* havva nur yanık — 2416501025 */
+:root {
+  --no: 2416501025;
+  --ton: 305; /* 2416501025 mod 360 */
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "Times New Roman", serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+  --hata-renk: #d32f2f;
+  --basari-bg: #e8f5e9;
+  --basari-renk: #2e7d32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: var(--renk-ana);
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: var(--bosluk-m);
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--kose);
+}
+
+nav a:hover,
+nav a.aktif {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--bosluk-m) var(--bosluk-m) var(--bosluk-m);
+}
+
+/* Görsel Stilleri */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Izgara Yapısı */
+section.etkinlikler-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bosluk-m);
+}
+
+@media (min-width: 768px) {
+  section.etkinlikler-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+article.kart {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: 4px solid var(--renk-ana);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  display: flex;
+  flex-direction: column;
+}
+
+article.kart img.kart-gorsel,
+article.kart img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--kose);
+  margin-bottom: 0.5rem;
+}
+
+article.kart h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+article.kart .rozet,
+article.kart .kategori-etiket {
+  color: var(--renk-ana);
+  font-weight: bold;
+  margin: 0.2rem 0;
+}
+
+article.kart p {
+  margin: 0.2rem 0;
+}
+
+article.kart a {
+  margin-top: 0.8rem;
+  color: var(--renk-ana);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+article.kart a:hover {
+  text-decoration: underline;
+}
+
+/* Filtre Formu ve Arama Kontrolleri */
+.filtreler,
+form.filtre {
+  background: var(--renk-zemin);
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  border: 1px solid #ddd;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bosluk-m);
+  margin-bottom: var(--bosluk-m);
+}
+
+@media (min-width: 768px) {
+  .filtreler,
+  form.filtre {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+#sonuc {
+  font-weight: bold;
+  margin-bottom: var(--bosluk-m);
+}
+
+/* Form Elemanları */
+form label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+input[type="search"],
+form input, 
+form select, 
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: var(--kose);
+  font-family: var(--font);
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--hata-renk) !important;
+  background-color: #fde8e8;
+}
+
+.hata-mesaji {
+  color: var(--hata-renk);
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* Mesaj Kutuları */
+.mesaj-kutusu {
+  margin-top: var(--bosluk-m);
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+}
+
+.mesaj-kutusu.hata,
+.hata-kutusu {
+  background-color: #fde8e8;
+  border: 1px solid var(--hata-renk);
+  color: var(--hata-renk);
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+}
+
+.mesaj-kutusu.basari {
+  background-color: var(--basari-bg);
+  border: 1px solid var(--basari-renk);
+  color: var(--basari-renk);
+}
+
+.mesaj-kutusu pre {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: var(--kose);
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  color: #333;
+}
+
+/* Detay Sayfası Tasarımı */
+.detay,
+.detay-kapsayici {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: var(--kose);
+}
+
+@media (min-width: 768px) {
+  .detay,
+  .detay-kapsayici {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+    gap: 2rem;
+  }
+}
+
+.detay figure,
+.afis-alani {
+  margin: 0;
+}
+
+.detay figure img {
+  width: 100%;
+  border-radius: var(--kose);
+}
+
+.kunye-kutusu {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--kose);
+  padding: 1.2rem 1.5rem;
+  background-color: #ffffff;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  row-gap: 0.8rem;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.kunye-kutusu dt {
+  font-weight: bold;
+  color: #111;
+  margin: 0;
+}
+
+.kunye-kutusu dd {
+  margin: 0;
+  color: #333;
+}
+
+.detay-alt-bolum {
+  margin-top: 1.5rem;
+}
+
+.aciklama {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Buton Stilleri */
+.buton {
+  background-color: var(--renk-ana);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: var(--kose);
+  font-family: var(--font);
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.buton.ikincil {
+  background-color: #666;
+}
+
+.buton:hover {
+  opacity: 0.9;
+}
+
+.islem-butonlari {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+/* Afiş görsellerinin kart boyutuna uyum sağlaması için */
+article.kart img.kart-gorsel,
+.afis-alani img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--kose);
+  display: block;
+}
