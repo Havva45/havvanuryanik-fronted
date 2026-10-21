@@ -24,30 +24,63 @@ body {
   color: #333;
 }
 
-header {
+/* ÜST MOR BANNER VE DÜZENİ (KÜÇÜLTÜLMÜŞ BANNER) */
+header,
+.ust-banner {
   background-color: var(--renk-ana);
   color: #fff;
-  padding: 1.2rem 1.5rem;
+  padding: 0.8rem 1.5rem; /* Dikey yükseklik azaltıldı */
   margin-bottom: var(--bosluk-m);
 }
 
-header h1 {
-  margin: 0 0 0.5rem 0;
+header h1,
+.ust-banner h1 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.5rem; /* Başlık boyutu dengelendi */
   color: #fff;
 }
 
-nav a {
+header p,
+.ust-banner p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* MOR BANNER İÇİNDEKİ YAN YANA GEÇİŞ BUTONLARI */
+nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+nav a,
+nav button {
   color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
   text-decoration: none;
+  font-family: var(--font);
   font-weight: bold;
-  margin-right: 1rem;
-  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem; /* Buton içi boşluklar küçültüldü */
   border-radius: var(--kose);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s ease;
 }
 
 nav a:hover,
-nav a.aktif {
-  background-color: rgba(255, 255, 255, 0.2);
+nav button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* AKTİF SAYFA BUTONU (BEYAZ KUTU) */
+nav a.aktif,
+nav button.aktif {
+  background-color: #ffffff !important;
+  color: var(--renk-ana) !important;
+  font-weight: bold;
 }
 
 main {
@@ -87,12 +120,14 @@ article.kart {
 }
 
 article.kart img.kart-gorsel,
-article.kart img {
+article.kart img,
+.afis-alani img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: var(--kose);
   margin-bottom: 0.5rem;
+  display: block;
 }
 
 article.kart h3 {
@@ -315,13 +350,4 @@ footer {
   font-size: 0.9rem;
   color: #666;
   border-top: 1px solid #eee;
-}
-/* Afiş görsellerinin kart boyutuna uyum sağlaması için */
-article.kart img.kart-gorsel,
-.afis-alani img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: var(--kose);
-  display: block;
 }
