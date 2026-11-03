@@ -104,6 +104,26 @@ img {
   font-weight: bold;
 }
 
+/* Telefonda 4 menü bağlantısı tek satırda, eşit genişlikte */
+@media (max-width: 560px) {
+  .ust-banner {
+    padding: 0.9rem 0.75rem 0.5rem;
+  }
+
+  .navigasyon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.2rem;
+  }
+
+  .navigasyon a {
+    padding: 0.45rem 0.15rem;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 3.7vw, 0.95rem);
+  }
+}
+
 /* İÇERİK */
 main {
   flex: 1;
