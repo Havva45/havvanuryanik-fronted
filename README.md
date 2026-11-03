@@ -2,9 +2,7 @@
 
 Fakültedeki seminer, atölye, söyleşi ve yarışmaları tek yerden takip etmek için React + TypeScript + Vite ile geliştirilmiş bir uygulama.
 
-**Canlı adres:** [https://havvanuryanik-frontend.vercel.app](https://havvanuryanikfronted.vercel.app) 
-Havva Nur Yanık · 2416501025
-
+**Canlı adres:** [https://havvanuryanik-frontend.vercel.app](https://havvanuryanikfronted.vercel.app)
 ## Özellikler
 
 - React Router ile 10 sayfa (route)
