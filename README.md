@@ -1,32 +1,56 @@
-# React + TypeScript + Vite
+# Kampüs Etkinlikleri
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Fakültedeki seminer, atölye, söyleşi ve yarışmaları tek yerden takip etmek için React + TypeScript + Vite ile geliştirilmiş bir uygulama.
 
-Currently, two official plugins are available:
+**Canlı adres:** https://havvanuryanik-frontend.vercel.app <!-- Vercel'e yükledikten sonra kendi adresinle değiştir -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Havva Nur Yanık · 2416501025
 
-## React Compiler
+## Özellikler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React Router ile 10 sayfa (route)
+- Context API (`EventProvider` + `useEvents`) ile tüm sayfalar aynı etkinlik verisini kullanır; veriler `localStorage`'da saklanır
+- Etkinlik ekleme, güncelleme ve silme; silmeden önce onay sorulur. Değişiklikler ana sayfa, liste ve detay sayfasında hemen görünür
+- Başlık/açıklamada arama ve kategoriye göre filtreleme
+- Form doğrulama: etkinlik formu, giriş, kayıt ve şifremi unuttum
+- Mobil uyumlu tasarım
 
-## Expanding the Oxlint configuration
+## Sayfalar
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+| Yol | Sayfa |
+| --- | --- |
+| `/` | Ana sayfa (yaklaşan 2 etkinlik) |
+| `/etkinlikler` | Tüm etkinlikler, arama ve filtre |
+| `/etkinlikler/:id` | Etkinlik detayı |
+| `/yonetim` | Etkinlik yönetimi (düzenle / sil) |
+| `/yonetim/ekle` | Etkinlik ekle |
+| `/yonetim/guncelle/:id` | Etkinlik güncelle |
+| `/giris` | Giriş yap |
+| `/kayit` | Kayıt ol |
+| `/sifremi-unuttum` | Şifremi unuttum |
+| `*` | 404 sayfası |
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Klasör yapısı
+
+```
+src/
+  components/
+    events/   EventCard, EventList, EventFilter, EventDetail
+    forms/    EventForm, FormField
+    layout/   Header, Navigation, Footer, PageLayout, NotFoundBox
+  context/    event-context, EventProvider, useEvents
+  data/       başlangıç etkinlikleri
+  pages/      10 sayfa bileşeni
+  types/      tipler ve route yolları
+  utils/      arama/filtre, sıralama, tarih biçimi, doğrulama
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Çalıştırma
+
+```bash
+npm install
+npm run dev      # geliştirme sunucusu
+npm run build    # üretim derlemesi
+```
+
+`vercel.json`, sayfa yenilendiğinde de route'ların çalışması için tüm istekleri `index.html`'e yönlendirir.

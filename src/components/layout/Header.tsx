@@ -5,10 +5,10 @@ interface HeaderProps {
 
 function Header({ title, text }: HeaderProps) {
   return (
-    <header className="site-baslik">
+    <div className="site-baslik">
       <h1>{title}</h1>
       {text && <p>{text}</p>}
-    </header>
+    </div>
   );
 }
 

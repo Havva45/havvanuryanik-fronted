@@ -1,4 +1,6 @@
-export type Category = "Seminer" | "Atölye" | "Söyleşi" | "Yarışma";
+export const CATEGORIES = ["Seminer", "Atölye", "Söyleşi", "Yarışma"] as const;
+
+export type Category = (typeof CATEGORIES)[number];
 
 export interface CampusEvent {
   id: string;
